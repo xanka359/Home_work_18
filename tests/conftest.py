@@ -1,9 +1,9 @@
+import os
+
 from selene import browser
 import pytest
 import allure
 import requests
-from allure_commons.types import AttachmentType
-
 
 
 LOGIN = "qaguru1@example.com"
@@ -18,8 +18,7 @@ def get_cookie():
             data={"Email": LOGIN, "Password": PASSWORD, "RememberMe": False},
             allow_redirects=False
         )
-    #allure.attach(body=result.text, name="Response", attachment_type=AttachmentType.TEXT, extension="txt")
-    #allure.attach(body=str(result.cookies), name="Cookies", attachment_type=AttachmentType.TEXT, extension="txt")
+
     with allure.step("Get cookie from API"):
         cookie = result.cookies.get("NOPCOMMERCE.AUTH")
 
