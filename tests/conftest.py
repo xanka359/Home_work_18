@@ -1,13 +1,15 @@
 import os
 
+from dotenv import load_dotenv
 from selene import browser
 import pytest
 import allure
 import requests
 
+load_dotenv()
 
-LOGIN = "qaguru1@example.com"
-PASSWORD = "123456"
+LOGIN = os.getenv('LOGIN')
+PASSWORD = os.getenv('PASSWORD')
 URL = "https://demowebshop.tricentis.com"
 
 
